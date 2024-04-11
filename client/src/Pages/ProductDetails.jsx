@@ -12,18 +12,18 @@ const ProductDetails = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex p-5">
-      <div className="w-[40%] p-3">
+    <div className="flex flex-wrap gap-3 p-5">
+      <div className="w-[400px] border-2 border-slate-400 rounded-lg p-5">
         <img
           src={product?.image}
           alt=""
           className="w-full aspect-square object-contain"
         />
       </div>
-      <div className="w-[60%] p-3">
+      <div className="w-[500px]  border-2 border-slate-400 rounded-lg p-5">
         <h1 className="text-2xl font-medium">{product?.title}</h1>
 
-        <p className="my-3">{product?.description}</p>
+        <p className="my-3 text-lg">{product?.description}</p>
         <p className="font-bold text-xl">Rs. {product?.price}</p>
         {/* <p>{product?.category}</p> */}
         <p className="my-3">
@@ -43,6 +43,7 @@ const ProductDetails = () => {
             color="blue"
             className="ml-3"
             onClick={() => {
+              alert("Added to cart");
               dispatch(addToCart(product));
             }}
           />

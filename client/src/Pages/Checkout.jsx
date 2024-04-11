@@ -33,9 +33,10 @@ const RightPanel = () => {
   const { items } = useSelector((state) => state.checkout);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const totalProductPrice = Math.ceil(
-    items.reduce((sum, currentValue) => sum + currentValue.price, 0)
-  );
+  const totalProductPrice =
+    Math.ceil(
+      items.reduce((sum, currentValue) => sum + currentValue.price, 0)
+    ) * 83;
   const delivery = 40;
   const totalPrice = totalProductPrice + delivery;
   return (
@@ -69,10 +70,16 @@ const RightPanel = () => {
 };
 
 const Address = () => {
+  const [address, setAddress] = useState("Kalyan, Thane, Maharastra");
   return (
     <div className="mb-5">
       <h1 className="text-2xl mb-3">Delivery Address</h1>
-      <p>Vithalwadi, Kalyan, Thane, Maharashtra, India</p>
+      <input
+        type="text"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        className="p-1 px-2 border-2 border-slate-500 rounded-md"
+      />
     </div>
   );
 };
@@ -85,7 +92,7 @@ const PaymentMethod = () => {
       value: "cash",
     },
     {
-      title: "Credi or debit card",
+      title: "Credit or debit card",
       value: "card",
     },
     {

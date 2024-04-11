@@ -4,6 +4,7 @@ import CustomInput from "../Components/CustomInput";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { login } from "../redux/authSlice";
+import { addUser } from "../redux/userSlice";
 
 const initialData = {
   username: "",
@@ -28,15 +29,21 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/submit-form",
+        "http://localhost:5000/api/auth/login",
         formData
       );
-      alert(response.data);
-      console.log(response.data);
+      // alert(response.data);
+      // console.log(response.data);
       setFormData(initialData);
       dispatch(login());
+      dispatch(addUser(response.data));
     } catch (error) {
-      console.error("Error submitting form:", error);
+      if (error.response && error.response.status === 401) {
+        alert(`Unauthorized `);
+        console.error("Unauthorized:", error.response.data);
+      } else {
+        console.error("Error submitting form:", error);
+      }
     }
   };
 

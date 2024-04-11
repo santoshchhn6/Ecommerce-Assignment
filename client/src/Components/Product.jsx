@@ -12,13 +12,13 @@ const Product = ({
   return (
     <Link
       to={`/products/${id}`}
-      className="w-[250px] p-2  border-2 border-slate-500 rounded-lg hover:border-blue-500 cursor-pointer"
+      className="w-[250px] h-[330px] p-2  border-2 border-slate-500 rounded-lg hover:border-blue-500 cursor-pointer"
     >
       <img src={image} alt="" className="w-full aspect-square object-contain" />
       <h3 className="text-lg font-medium">{title?.slice(0, 23)}</h3>
 
       {/* <p>{description}</p> */}
-      <p className="font-bold">Rs. {price}</p>
+      <p className="font-bold">Rs. {Math.ceil(price * 83)}</p>
       {/* <p>{category}</p> */}
       <p>
         Rating: {rating?.rate} ({rating?.count})

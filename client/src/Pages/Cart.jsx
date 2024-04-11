@@ -43,7 +43,6 @@ const Cart = () => {
                   text="Remove"
                   className="flex-1 bg-red-600 hover:bg-red-500"
                   onClick={() => {
-                    alert("Item added to Cart");
                     dispatch(removeFromCart(product.id));
                   }}
                 />

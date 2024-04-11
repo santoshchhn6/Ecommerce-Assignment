@@ -10,7 +10,7 @@ const SearchProduct = () => {
       placeholder="Search Product"
       value={searchTerm}
       onChange={(e) => dispatch(setSearchTerm(e.target.value))}
-      className="border-2 border-slate-500 outline-none rounded-md px-2 py-1 mx-3"
+      className="w-[300px] border-2 border-slate-500 outline-none rounded-md px-2 py-1 mx-3"
     />
   );
 };

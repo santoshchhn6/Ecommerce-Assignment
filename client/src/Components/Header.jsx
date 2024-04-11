@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className=" mb-3 p-3 flex justify-between bg-slate-200">
+    <div className=" mb-3 p-3 pr-10 flex justify-between bg-slate-200">
       <Logo />
       <SearchProduct />
       <Cart />
@@ -31,7 +31,7 @@ const Cart = () => {
       />
 
       {items.length > 0 ? (
-        <span className="absolute -top-3 -right-2 bg-blue-600 text-white py-0.5 px-2  rounded-full text-sm">
+        <span className="absolute -top-2 -right-1 bg-blue-600 text-white py-0.4 px-2  rounded-full text-sm">
           {items.length}
         </span>
       ) : null}
