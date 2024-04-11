@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchTerm } from "./redux/searchSlice";
+import { setSearchTerm } from "../redux/searchSlice";
 
 const SearchProduct = () => {
   const { searchTerm } = useSelector((state) => state.search);

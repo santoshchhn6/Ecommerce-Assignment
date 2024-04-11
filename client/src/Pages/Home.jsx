@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import ProductList from "./ProductList";
-import Header from "./Header";
-import Siderbar from "./Siderbar";
-import useFetch from "./useFetch";
+import ProductList from "../Components/ProductList";
+import Siderbar from "../Components/Siderbar";
+import useFetch from "../useFetch";
 import { useEffect } from "react";
-import { setProducts } from "./redux/productSlice";
+import { setProducts } from "../redux/productSlice";
 
 const Home = () => {
   const { LoggedIn } = useSelector((state) => state.auth);
@@ -20,15 +19,12 @@ const Home = () => {
   }
 
   return (
-    <div className="px-3">
-      <Header />
-      <div className=" flex gap-3">
-        <div className=" w-[300px] h-[100vh]">
-          <Siderbar />
-        </div>
-
-        <ProductList />
+    <div className=" flex gap-3 px-3">
+      <div className=" w-[300px] h-[100vh]">
+        <Siderbar />
       </div>
+
+      <ProductList />
     </div>
   );
 };

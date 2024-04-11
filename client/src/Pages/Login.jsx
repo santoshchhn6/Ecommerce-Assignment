@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import CustomInput from "./CustomInput";
+import CustomInput from "../Components/CustomInput";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { login } from "./redux/authSlice";
+import { login } from "../redux/authSlice";
 
 const initialData = {
   username: "",

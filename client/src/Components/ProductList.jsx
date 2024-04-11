@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Product from "./Product";
 import { useEffect } from "react";
-import { setFilteredProduct } from "./redux/filteredProductSlice";
+import { setFilteredProduct } from "../redux/filteredProductSlice";
 
 const ProductList = () => {
   const { searchTerm } = useSelector((state) => state.search);
@@ -34,6 +34,7 @@ const ProductList = () => {
       {filteredProducts.map((product) => (
         <Product
           key={product.id}
+          id={product.id}
           title={product.title}
           price={product.price}
           description={product.description}

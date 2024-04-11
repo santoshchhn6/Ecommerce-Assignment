@@ -1,5 +1,9 @@
-import Home from "./Home";
-import Login from "./Login";
+import Layout from "./Layout";
+import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import ProductDetails from "./Pages/ProductDetails";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,9 +12,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/products/:id" element={<ProductDetails />} /> */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

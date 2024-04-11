@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilteredProduct } from "./redux/filteredProductSlice";
+import { setFilteredProduct } from "../redux/filteredProductSlice";
 
 const Siderbar = () => {
   return (
