@@ -27,24 +27,30 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        formData
-      );
-      // alert(response.data);
-      // console.log(response.data);
+    if (formData.username === "santosh" && formData.password === "admin") {
       setFormData(initialData);
       dispatch(login());
-      dispatch(addUser(response.data));
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        alert(`Unauthorized `);
-        console.error("Unauthorized:", error.response.data);
-      } else {
-        console.error("Error submitting form:", error);
-      }
+    } else {
+      alert("wrong username or password");
     }
+    // try {
+    //   // const response = await axios.post(
+    //   //   "http://localhost:5000/api/auth/login",
+    //   //   formData
+    //   // );
+    //   // alert(response.data);
+    //   // console.log(response.data);
+    //   setFormData(initialData);
+    //   dispatch(login());
+    //   // dispatch(addUser(response.data));
+    // } catch (error) {
+    //   if (error.response && error.response.status === 401) {
+    //     alert(`Unauthorized `);
+    //     console.error("Unauthorized:", error.response.data);
+    //   } else {
+    //     console.error("Error submitting form:", error);
+    //   }
+    // }
   };
 
   return (
